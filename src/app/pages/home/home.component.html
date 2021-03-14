@@ -1,0 +1,56 @@
+
+<div class="vertical-nav" id="sidebar" [ngClass] = "hideSidebar ? '': 'close-sidebar1' ">
+  <div class="py-3 px-5 mb-1">
+    <div class="media d-flex"><img src="assets/logo.png" alt="..." width="65" class="mr-3 img-thumbnail shadow-sm">
+      <div class="media-body">
+        <h4 class="m-0">APP</h4>
+      </div>
+    </div>
+  </div>
+  <div class="nav flex-column mb-0">
+    
+      <div ngbDropdown class="d-inline-block">
+        <a class="nav-link text-dark font-italic" id="dropdownBasic1" ngbDropdownToggle>
+            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+            Home
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
+    
+      <div class="d-inline-block">
+        <a href="#" class="nav-link text-dark font-italic" >
+                  <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                  About
+              </a>
+      </div>
+      <div class="d-inline-block ">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                Services
+            </a>
+          </div>
+    <div class="d-inline-block">
+      <a href="#" class="nav-link text-dark font-italic">
+                <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                Gallery
+            </a>
+          </div>
+        </div>
+</div>
+<!-- End vertical navbar -->
+
+<div class="page-content p-3" id="content" [ngClass] = "hideSidebar ? '': 'close-sidebar2'"> -->
+  <!-- Toggle button -->
+    <div class="container-fluid">
+      <div class="row">
+        <button id="toggle" class="btn btn-light shadow-sm toggle-btn" (click)="toggle()"><i class="fa fa-bars"></i></button>
+        <div  style="margin-left: 10px;">
+          <h6 >hello</h6>
+        </div>
+    </div>
+  </div>
+</div>
