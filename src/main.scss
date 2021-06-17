@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&family=Nunito:wght@400;700&display=swap');
+
+$turquoise: #2980b9;
+$blue: #2c3e50;
+$dark-blue: #1985e4;
+$danger: #e27e7e;
+$light: #f4f4f4;
+$family-sans-serif: "Nunito", "sans-serif";
+$primary: $blue;
+
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+html, body {
+    font-family: 'Nunito';
+    height: 100%;
+    background: linear-gradient(to right top, $turquoise, $blue);
+}
+
+.white-text{
+    color: rgb(255, 255, 255);
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family:"Lato";
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100%;
+    color: white;
+}
+.model-box{
+    min-height: 200px;
+    width: 100%;
+    max-width: 580px;
+    background: linear-gradient(to right bottom,#000000,#434343);
+    border-radius: 5px;
+    padding: 35px;
+}
+
+
