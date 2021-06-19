@@ -15,6 +15,7 @@ $input-shadow: none;
 html, body {
     font-family: 'Nunito';
     height: 100%;
+    width: 100%;
     background: linear-gradient(to right top, $turquoise, $blue);
 }
 
@@ -37,15 +38,15 @@ html, body {
     align-items: center;
     width: 100%;
     height:100%;
-    color: white;
 }
 .model-box{
-    min-height: 200px;
+    min-height: 250px;
     width: 100%;
     max-width: 580px;
-    background: linear-gradient(to right bottom,#000000,#434343);
+    background: whitesmoke;
+    // background: linear-gradient(to right bottom,#000000,#434343);
     border-radius: 5px;
-    padding: 35px;
+    padding: 30px;
 }
 
 

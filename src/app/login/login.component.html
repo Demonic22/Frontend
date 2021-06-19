@@ -1,29 +1,52 @@
-﻿
+﻿<!-- template driven login page -->
 <div class="centered-content"> 
     <div class="model-box">
     <div class="container has-background-light">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h3>Login</h3>
-                <form >
+            <div class="col-md-8 offset-md-2">
+                <h2 class="d-flex justify-content-center mb-3" >Login</h2>
+                <!-- <h6 style="text-align:center;color:dimgrey;font-size:small">All fields are mandatory</h6> -->
+                <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" >
                     <div class="form-group">
-                        <label>User Name</label>
-                        <input type="text" class="form-control"  />
-                       
+                        <!-- <label>User Name</label> -->
+                        <input type="text" name="userName" #userNameRef="ngModel"
+                            class="form-control"  ngModel
+                            placeholder="&#xf023;&nbsp; Username" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>   
                     </div>
-                    
-
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control"  />
+                    <div [hidden]="userNameRef.untouched">
+                        <div [hidden]="userNameRef.valid">
+                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Username is mandatory</small> </p>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <!-- <label>Password</label> -->
                         
+                        <input type="password" name="password" #passwordRef="ngModel"
+                            class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ngModel
+                            placeholder="&#xf084; Password" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>                       
+                           
                     </div>
-                    
-                    <div class="form-group">
-                        <button class="btn btn-primary">Login</button>
+                    <div [hidden]="passwordRef.untouched">
+                        <div class="mb-3n" [hidden]="!passwordRef.errors">
+                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Password must contain 1 uppercase, 1 lowercase and minimum 8 letters
+                            </small></p>
+                        </div>
+                        <div class="mb-3n" [hidden]="passwordRef.valid">
+                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Password is mandatory
+                            </small></p>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-block" 
+                            [disabled]="loginForm.form.invalid" 
+                            aria-pressed="true">Login</button>
+                          </div>
                     </div>
                 </form>
-                <button (click)= "registerClick()" class="btn btn-link">Register here</button>
+                <div class="d-flex justify-content-center">
+                    <button (click)= "registerClick()" class="btn btn-link">New here? Create an account</button>
+                </div>
             </div>
         </div>
     </div>

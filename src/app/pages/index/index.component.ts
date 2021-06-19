@@ -12,7 +12,7 @@ export class IndexComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log("check");
+    
   }
 
 }

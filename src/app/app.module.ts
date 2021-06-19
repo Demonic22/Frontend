@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes,RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
+
 import { IndexComponent } from './pages/index/index.component';
 import { GeneralService } from './Services/general.service';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +22,10 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [GeneralService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
