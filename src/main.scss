@@ -43,10 +43,12 @@ html, body {
     min-height: 250px;
     width: 100%;
     max-width: 580px;
-    background: whitesmoke;
     // background: linear-gradient(to right bottom,#000000,#434343);
     border-radius: 5px;
     padding: 30px;
+    background: #ece9e6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ece9e6, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ece9e6, #ffffff);
 }
 
 

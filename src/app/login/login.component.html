@@ -2,7 +2,7 @@
 <div class="centered-content"> 
     <div class="model-box">
     <div class="container has-background-light">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-md-8 offset-md-2">
                 <h2 class="d-flex justify-content-center mb-3" >Login</h2>
                 <!-- <h6 style="text-align:center;color:dimgrey;font-size:small">All fields are mandatory</h6> -->
@@ -10,13 +10,8 @@
                     <div class="form-group">
                         <!-- <label>User Name</label> -->
                         <input type="text" name="userName" #userNameRef="ngModel"
-                            class="form-control"  ngModel
+                            class="form-control"  autofocus autocomplete="off" ngModel
                             placeholder="&#xf023;&nbsp; Username" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>   
-                    </div>
-                    <div [hidden]="userNameRef.untouched">
-                        <div [hidden]="userNameRef.valid">
-                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Username is mandatory</small> </p>
-                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <!-- <label>Password</label> -->
@@ -26,14 +21,12 @@
                             placeholder="&#xf084; Password" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>                       
                            
                     </div>
-                    <div [hidden]="passwordRef.untouched">
-                        <div class="mb-3n" [hidden]="!passwordRef.errors">
-                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Password must contain 1 uppercase, 1 lowercase and minimum 8 letters
+                    <div [hidden]="!passwordRef.touched">
+                        <div [hidden]="!passwordRef.dirty">
+                        <div class="mb-3n" [hidden]="passwordRef.valid">
+                            <p style="color:rgb(163, 49, 49); font-size: smaller; padding-left: 0.3em;"><small>Password must contain 1 uppercase, 1 lowercase and minimum 8 letters
                             </small></p>
                         </div>
-                        <div class="mb-3n" [hidden]="passwordRef.valid">
-                            <p style="color:rgb(163, 49, 49)">&nbsp;<small>Password is mandatory
-                            </small></p>
                         </div>
                     </div>
                     <div class="form-group mt-3">

@@ -1,13 +1,17 @@
-﻿<div class="centered-content"> 
+﻿<!-- Reactive Form driven register page -->
+<div class="centered-content"> 
     <div class="model-box">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h3>Sign Up</h3>
+        <div class="row align-items-center">
+            <div class="col-md-4 d-flex justify-content-center" style="font-family: sans-serif;">  
+                        <h3>Sign Up</h3>
+            </div>
+
+            <div class="col-md-8">
                 <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm(registerForm)">
                     <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" formControlName="firstName"/>
+                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" 
+                        formControlName="firstName" placeholder="First Name"/>
                     </div>
                     <div [hidden]="registerForm.controls.firstName.untouched">
                         <div *ngIf = "registerForm.controls.firstName.errors?.required">
@@ -19,9 +23,9 @@
                     </div>
                     
 
-                    <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" formControlName="lastName"/>
+                    <div class="form-group mt-3">
+                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" 
+                        placeholder="Last Name" formControlName="lastName"/>
                        
                     </div>
                     <div [hidden]="registerForm.controls.lastName.untouched">
@@ -33,9 +37,9 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>User Name</label>
-                        <input type="text" pattern="[^' ']{4,}" class="form-control" formControlName="userName"/>
+                    <div class="form-group mt-3">
+                        <input type="text" pattern="[^' ']{4,}" class="form-control" 
+                        placeholder="User Name" formControlName="userName"/>
                         <div [hidden]="registerForm.controls.userName.untouched">
                             <div *ngIf = "registerForm.controls.userName.errors?.required">
                                 <small>User Name is mandatory</small>
@@ -48,10 +52,10 @@
                     </div>
                     
 
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" formControlName="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+                    <div class="form-group mt-3">
+                        <input type="password" class="form-control" 
+                            placeholder="Password" formControlName="password"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
                             <div [hidden]="registerForm.controls.password.untouched">
                                 <div *ngIf = "registerForm.controls.password.errors?.required">
                                     <small>Password is mandatory</small>
@@ -63,11 +67,16 @@
                             </div>
                     </div>
                     
-                    <div class="form-group mt-2">
-                        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Register</button>
+                    <div class="form-group mt-3">
+                        <div class="d-grid">
+                            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-block">Register</button>
+                        </div>
                     </div>
                 </form>
-                <button (click)= "backClick()" class="btn btn-link">Back to Login Page</button>
+                <div class="d-flex justify-content-center mt-1">
+                    <button (click)= "backClick()" class="btn btn-link">Back to Login Page</button>
+                </div>
+                
             </div>
         </div>
     </div>

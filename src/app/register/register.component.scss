@@ -2,3 +2,10 @@ input.ng-valid{
     border-left: 5px solid rgb(1, 202, 1);
 }
 input.ng-invalid.ng-touched {border-left: 5px solid red;}
+
+input{
+    font-family:Arial;
+    letter-spacing: 1px; 
+    border-color:#a27aec;
+    border-width: 0.1em;  
+}
