@@ -9,43 +9,40 @@
 
             <div class="col-md-8">
                 <form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm(registerForm)">
-                    <div class="form-group">
-                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" 
-                        formControlName="firstName" placeholder="First Name"/>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" 
+                        formControlName="firstName" placeholder="First Name" autofocus
+                        [class.is-valid]="registerForm.controls.firstName.touched && registerForm.controls.firstName.valid"
+                        [class.is-invalid]="registerForm.controls.firstName.touched && registerForm.controls.firstName.invalid"/>
                     </div>
                     <div [hidden]="registerForm.controls.firstName.untouched">
-                        <div *ngIf = "registerForm.controls.firstName.errors?.required">
-                            <small>First Name is mandatory</small>
-                        </div>
-                        <div *ngIf = "registerForm.controls.firstName.errors?.pattern">
-                            <small>Digits,Space and Special characters are not allowed</small>
+                        <div *ngIf = "registerForm.controls.firstName.errors?.pattern" class="alert alert-danger p-1">
+                            <small style="font-size: smaller;">Digits,Space and Special characters are not allowed</small>
                         </div>
                     </div>
                     
 
                     <div class="form-group mt-3">
-                        <input type="text" pattern="[A-Za-z]{1,}" class="form-control" 
-                        placeholder="Last Name" formControlName="lastName"/>
+                        <input type="text" class="form-control" 
+                        placeholder="Last Name" formControlName="lastName"
+                        [class.is-valid]="registerForm.controls.lastName.touched && registerForm.controls.lastName.valid"
+                        [class.is-invalid]="registerForm.controls.lastName.touched && registerForm.controls.lastName.invalid"/>
                        
                     </div>
                     <div [hidden]="registerForm.controls.lastName.untouched">
-                        <div *ngIf = "registerForm.controls.lastName.errors?.required">
-                            <small>Last Name is mandatory</small>
-                        </div>
-                        <div *ngIf = "registerForm.controls.lastName.errors?.pattern">
-                            <small>Space and Special characters are not allowed</small>
+                        <div *ngIf = "registerForm.controls.lastName.errors?.pattern" class="alert alert-danger p-1">
+                            <small style="font-size: smaller;">Space and Special characters are not allowed</small>
                         </div>
                     </div>
 
                     <div class="form-group mt-3">
-                        <input type="text" pattern="[^' ']{4,}" class="form-control" 
-                        placeholder="User Name" formControlName="userName"/>
+                        <input type="text" class="form-control" 
+                        placeholder="User Name" formControlName="userName"
+                        [class.is-valid]="registerForm.controls.userName.touched && registerForm.controls.userName.valid"
+                        [class.is-invalid]="registerForm.controls.userName.touched && registerForm.controls.userName.invalid"/>
                         <div [hidden]="registerForm.controls.userName.untouched">
-                            <div *ngIf = "registerForm.controls.userName.errors?.required">
-                                <small>User Name is mandatory</small>
-                            </div>
-                            <div *ngIf = "registerForm.controls.userName.errors?.pattern">
-                                <small>User name must be 4 digit or more <br/>
+                            <div *ngIf = "registerForm.controls.userName.errors?.pattern" class="alert alert-danger p-1">
+                                <small style="font-size: smaller;">User name must be 4 digit or more <br/>
                                 Do not contain spaces</small>
                             </div>
                         </div>
@@ -55,16 +52,20 @@
                     <div class="form-group mt-3">
                         <input type="password" class="form-control" 
                             placeholder="Password" formControlName="password"
-                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
-                            <div [hidden]="registerForm.controls.password.untouched">
-                                <div *ngIf = "registerForm.controls.password.errors?.required">
-                                    <small>Password is mandatory</small>
-                                </div>
-                                <div *ngIf = "registerForm.controls.password.errors?.pattern">
-                                    <small>Password should be in following format :<br/>
-                                        Password must contain atleast 1 uppercase, 1 lowercase and minimum 8 letters</small>
-                                </div>
-                            </div>
+                            [class.is-valid]="registerForm.controls.password.touched && registerForm.controls.password.valid"
+                            [class.is-invalid]="registerForm.controls.password.touched && registerForm.controls.password.invalid"/>
+                            <div *ngIf = "registerForm.controls.password.errors?.pattern && registerForm.controls.password.touched" class="alert alert-danger p-1">
+                                    <small style="font-size: smaller;">Password should be in following format :<br/>
+                                        Password must contain atleast Digit, 1 uppercase, 1 lowercase and minimum 8 letters</small>
+                                </div>   
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <input type="password" class="form-control" 
+                            placeholder="Confirm Password" formControlName="confirmPassword"
+                            
+                            [class.is-invalid]="registerForm.errors?.misMatch"/>
+                            <small *ngIf="registerForm.hasError('misMatch')" style="font-size: smaller;">Password do not match</small>
                     </div>
                     
                     <div class="form-group mt-3">

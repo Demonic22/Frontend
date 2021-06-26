@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 
 import { IndexComponent } from './pages/index/index.component';
-import { GeneralService } from './Services/general.service';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

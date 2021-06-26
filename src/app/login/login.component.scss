@@ -1,11 +1,9 @@
 
-input.ng-valid{
-    border-left: 0.3em solid rgb(1, 202, 1);
+input{
+    font-family:Arial, FontAwesome;
+    letter-spacing: 1px;
+    border-color:lightblue;
+    border-width: 0.1em;  
 }
-input.ng-invalid.ng-touched {border-left: 0.3em solid red;}
-
-
-
-
     
     

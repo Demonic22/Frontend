@@ -9,24 +9,28 @@
                 <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" >
                     <div class="form-group">
                         <!-- <label>User Name</label> -->
-                        <input type="text" name="userName" #userNameRef="ngModel"
-                            class="form-control"  autofocus autocomplete="off" ngModel
-                            placeholder="&#xf023;&nbsp; Username" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>   
+                        <div class="input-group">
+                            <input type="text" name="userName" #userNameRef="ngModel"
+                                class="form-control" autocomplete="off" ngModel
+                                placeholder="&#xf023;&nbsp; Username" required
+                                [class.is-valid]="userNameRef.valid && userNameRef.touched"
+                                [class.is-invalid]="userNameRef.invalid && userNameRef.touched">   
+                        </div>
                     </div>
                     <div class="form-group mt-3">
                         <!-- <label>Password</label> -->
                         
                         <input type="password" name="password" #passwordRef="ngModel"
                             class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ngModel
-                            placeholder="&#xf084; Password" style="font-family:Arial, FontAwesome;letter-spacing: 1px;" required/>                       
+                            placeholder="&#xf084; Password" required
+                            [class.is-valid]="passwordRef.valid && passwordRef.touched"
+                            [class.is-invalid]="passwordRef.invalid && passwordRef.touched"/>                       
                            
                     </div>
                     <div [hidden]="!passwordRef.touched">
-                        <div [hidden]="!passwordRef.dirty">
-                        <div class="mb-3n" [hidden]="passwordRef.valid">
-                            <p style="color:rgb(163, 49, 49); font-size: smaller; padding-left: 0.3em;"><small>Password must contain 1 uppercase, 1 lowercase and minimum 8 letters
+                        <div [hidden]="passwordRef.valid || passwordRef.pristine" class="alert alert-danger">
+                            <p class="m-0 p-0" style="color:rgb(163, 49, 49); font-size: smaller; padding-left: 0.3em;"><small>Password must contain Digit, 1 uppercase, 1 lowercase and minimum 8 letters
                             </small></p>
-                        </div>
                         </div>
                     </div>
                     <div class="form-group mt-3">
